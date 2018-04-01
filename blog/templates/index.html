@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static "css/base.css" %}">
+<script src="{% static "js/jquery-3.2.1.js" %}"></script>
+</head>
+<body>
+
+<form action="/blog/create/" method="post">{% csrf_token %}
+    <table>{{ form }}</table>
+    <br>
+    <input type="submit">
+</form>
+{% for blog in blog_list %}
+    <h2>{{ blog.title }}</h2>
+    <p>{{ blog.timestamp }}</p>
+    <p>{{ blog.body }}</p>
+{% endfor %}
+</div>
+</body>
+{#<script>#}
+{#window.onload = function ()#}
+{#{#}
+{#	var oH2 = document.getElementsByTagName("h2")[0];#}
+{#	var oUl = document.getElementsByTagName("ul")[0];#}
+{#	oH2.onclick = function ()#}
+{#	{#}
+{#		var style = oUl.style;#}
+{#		style.display = style.display == "block" ? "none" : "block";#}
+{#		oH2.className = style.display == "block" ? "open" : ""#}
+{#	}#}
+{#}#}
+{#// 切换侧边栏#}
+{#$(function(){#}
+{#    // 切换侧边栏#}
+{#    $(".navbar-left li").click(toggleSidebar);#}
+{#});#}
+{##}
+{##}
+{#//切换侧边栏显示隐藏#}
+{#function toggleSidebar(){#}
+{#    $("body").toggleClass("big-page");#}
+{#    return false;#}
+{#}#}
+{#</script>#}
+
+</html>
